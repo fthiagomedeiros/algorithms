@@ -1,0 +1,13 @@
+bin/
+.DS_Store
+mvnw*
+.mvn/
+activeWS_log.txt
+*.log
+
+### STS ###
+.classpath
+.factorypath
+.project
+.settings
+.springBeans

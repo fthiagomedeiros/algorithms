@@ -6,18 +6,19 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
-import algorithms.data.structure.union.find.QuickUnionFind;
+import algorithms.data.structure.union.find.QuickFind;
+import algorithms.data.structure.union.find.UnionFindBasis;
 
 /**
  * Test cases for algorithm Quick-Union
  * @author fthiagom
  *
  */
-class BasicUnionFindTest {	
+class QuickFindTests {
 	
 	@Test
 	void basicUnionFindTest() {
-		QuickUnionFind i1 = new QuickUnionFind(3);
+		UnionFindBasis i1 = new QuickFind(3);
 		assertEquals(false, i1.connected(0, 1));
 		
 		i1.union(0, 1);
@@ -28,9 +29,10 @@ class BasicUnionFindTest {
 		i1.union(0, 2);
 	}
 	
+	
 	@Test
 	void basicUnionFindTenItemsTest() {
-		QuickUnionFind i1 = new QuickUnionFind(10);
+		UnionFindBasis i1 = new QuickFind(10);
 		assertEquals(false, i1.connected(0, 1));
 		
 		i1.union(0, 1);
@@ -48,7 +50,7 @@ class BasicUnionFindTest {
 	
 	@Test
 	void basicUnionFindItemsTest() {
-		QuickUnionFind i1 = new QuickUnionFind(10);
+		UnionFindBasis i1 = new QuickFind(10);
 		i1.union(0, 5);
 		i1.union(0, 6);
 		
@@ -61,7 +63,7 @@ class BasicUnionFindTest {
 	
 	@Test
 	void courseSampleTest() {
-		QuickUnionFind i1 = new QuickUnionFind(10);
+		UnionFindBasis i1 = new QuickFind(10);
 		System.out.println(i1.getValues());
 		
 		i1.union(4, 3);

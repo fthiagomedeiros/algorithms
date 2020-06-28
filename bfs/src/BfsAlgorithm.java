@@ -15,6 +15,30 @@ class Node{
 
 class Solution {
 
+    private static void inOrder(Node root) {
+        if (root != null) {
+            inOrder(root.left);
+            System.out.print(Solution.visit(root) + "");
+            inOrder(root.right);
+        }
+    }
+
+    private static void postOrder(Node root) {
+        if (root != null) {
+            postOrder(root.left);
+            postOrder(root.right);
+            System.out.print(Solution.visit(root));
+        }
+    }
+
+    private static void preOrder(Node root) {
+        if (root != null) {
+            System.out.print(Solution.visit(root));
+            preOrder(root.left);
+            preOrder(root.right);
+        }
+    }
+
     static void levelOrder(Node root){
         Queue<Node> queue = new ArrayDeque<>();
         queue.add(root);
@@ -61,6 +85,7 @@ class Solution {
             return root;
         }
     }
+
     public static void main(String[] args){
         Scanner sc=new Scanner(System.in);
         int T=sc.nextInt();
@@ -69,6 +94,15 @@ class Solution {
             int data=sc.nextInt();
             root=insert(root,data);
         }
+
+        System.out.println("leveOrder");
         levelOrder(root);
+        System.out.println("inOrder");
+        inOrder(root);
+        System.out.println("\npostOrder");
+        postOrder(root);
+        System.out.println("\npreOrder");
+        preOrder(root);
     }
+
 }

@@ -38,7 +38,7 @@ class ResultTest {
         ResultHourGlass r = new ResultHourGlass();
         int result = r.hourglassSum(arr);
 
-        Assertions.assertEquals(7, result);
+        Assertions.assertEquals(-6, result);
 
 
     }

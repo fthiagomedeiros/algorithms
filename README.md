@@ -1,4 +1,5 @@
 # Algorithms
 
-Implementing data structures and algorithms.
+Training for data structures and algorithms.
+Contest questions etc
 

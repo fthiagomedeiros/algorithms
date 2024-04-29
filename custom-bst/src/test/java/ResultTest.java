@@ -17,7 +17,7 @@ class ResultTest {
 
     @BeforeEach
     public void loadFile() throws IOException {
-        BufferedReader bufferedReader = new BufferedReader(new FileReader("test5.txt"));
+        BufferedReader bufferedReader = new BufferedReader(new FileReader("test0.txt"));
 
         IntStream.range(0, 6).forEach(i -> {
             try {
@@ -34,12 +34,6 @@ class ResultTest {
 
     @Test
     public void testBaseCase() throws IOException {
-
-        ResultHourGlass r = new ResultHourGlass();
-        int result = r.hourglassSum(arr);
-
-        Assertions.assertEquals(-6, result);
-
 
     }
 

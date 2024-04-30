@@ -31,6 +31,7 @@ class BinaryTreeTest {
 
         assertTrue(binaryTree.hasData(11));
         assertFalse(binaryTree.hasData(55));
+        assertFalse(binaryTree.hasData(99));
     }
 
 

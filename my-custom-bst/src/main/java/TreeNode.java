@@ -7,9 +7,9 @@ import lombok.Setter;
 @NoArgsConstructor
 public class TreeNode {
 
-    private TreeNode left;
-    private TreeNode right;
-    private int data;
+    TreeNode left;
+    TreeNode right;
+    int val;
 
 }
 

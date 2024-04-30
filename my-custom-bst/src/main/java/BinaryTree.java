@@ -1,8 +1,10 @@
 import java.util.List;
 import java.util.stream.Collectors;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
+@Getter
 public class BinaryTree {
 
     private TreeNode root;
@@ -10,7 +12,7 @@ public class BinaryTree {
     public void insert(int data) {
 
         TreeNode node = new TreeNode();
-        node.setData(data);
+        node.setVal(data);
         if (root == null) {
             root = node;
             return;
@@ -21,15 +23,15 @@ public class BinaryTree {
         while (temp != null) {
 
             previous = temp;
-            if (data < temp.getData()) {
+            if (data < temp.getVal()) {
                 temp = temp.getLeft();
-            } else if (data > temp.getData()) {
+            } else if (data > temp.getVal()) {
                 temp = temp.getRight();
             }
 
         }
 
-        if (data < previous.getData()) {
+        if (data < previous.getVal()) {
 
             previous.setLeft(node);
         } else {
@@ -37,8 +39,8 @@ public class BinaryTree {
         }
     }
 
-    public List<Integer> insert(List<Integer> data) {
-        return data.stream().sequential()
+    public void insert(List<Integer> data) {
+        data.stream()
             .peek(this::insert)
             .collect(Collectors.toList());
     }
@@ -50,10 +52,10 @@ public class BinaryTree {
 
         TreeNode temp = root;
         while (true) {
-            if (data < temp.getData()) {
+            if (data < temp.getVal()) {
                 temp = temp.getLeft();
 
-            } else if (data > temp.getData()) {
+            } else if (data > temp.getVal()) {
                 temp = temp.getRight();
             }
 
@@ -61,10 +63,11 @@ public class BinaryTree {
                 return false;
             }
 
-            if (temp.getData() == data) {
+            if (temp.getVal() == data) {
                 return true;
             }
         }
 
     }
+
 }

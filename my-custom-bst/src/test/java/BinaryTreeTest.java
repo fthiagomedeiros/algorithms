@@ -7,10 +7,12 @@ import org.junit.jupiter.api.Test;
 class BinaryTreeTest {
 
     private BinaryTree binaryTree;
+    private BinaryTree secondBinaryTree;
 
     @BeforeEach
     void setUp() {
         binaryTree = new BinaryTree();
+        secondBinaryTree = new BinaryTree();
     }
 
     @Test
@@ -33,6 +35,62 @@ class BinaryTreeTest {
         assertFalse(binaryTree.hasData(55));
         assertFalse(binaryTree.hasData(99));
     }
+
+    @Test
+    void shouldValidateSameTree() {
+        binaryTree.insert(List.of(10, 20, 30, 11, 5));
+        secondBinaryTree.insert(List.of(10, 20, 30, 11, 5));
+
+        SameTreeAlgorithm alg = new SameTreeAlgorithm();
+        boolean result = alg.isSameTree(binaryTree.getRoot(), secondBinaryTree.getRoot());
+        assertTrue(result);
+
+    }
+
+    @Test
+    void shouldValidateSameTree2() {
+        binaryTree.insert(List.of(10));
+        secondBinaryTree.insert(List.of(10));
+
+        SameTreeAlgorithm alg = new SameTreeAlgorithm();
+        boolean result = alg.isSameTree(binaryTree.getRoot(), secondBinaryTree.getRoot());
+        assertTrue(result);
+
+    }
+
+    @Test
+    void shouldBeFalse() {
+        binaryTree.insert(List.of(1));
+        secondBinaryTree.insert(List.of(10));
+
+        SameTreeAlgorithm alg = new SameTreeAlgorithm();
+        boolean result = alg.isSameTree(binaryTree.getRoot(), secondBinaryTree.getRoot());
+        assertFalse(result);
+
+    }
+
+    @Test
+    void shouldTest3() {
+        binaryTree.insert(List.of(10, 1, 11));
+        secondBinaryTree.insert(List.of(10, 1, 11));
+
+        SameTreeAlgorithm alg = new SameTreeAlgorithm();
+        boolean result = alg.isSameTree(binaryTree.getRoot(), secondBinaryTree.getRoot());
+        assertTrue(result);
+
+    }
+
+    @Test
+    void shouldTest4() {
+        binaryTree.insert(List.of(10, 20, 30, 11, 5));
+        secondBinaryTree.insert(List.of(10, 20, 30, 11, 5, 7));
+
+        SameTreeAlgorithm alg = new SameTreeAlgorithm();
+        boolean result = alg.isSameTree(binaryTree.getRoot(), secondBinaryTree.getRoot());
+        assertFalse(result);
+
+    }
+
 
 
 }

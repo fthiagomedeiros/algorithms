@@ -1,5 +1,6 @@
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -19,6 +20,14 @@ class BinaryTreeTest {
         binaryTree.insert(5);
         binaryTree.insert(30);
         binaryTree.insert(11);
+
+        assertTrue(binaryTree.hasData(11));
+        assertFalse(binaryTree.hasData(55));
+    }
+
+    @Test
+    void shouldInsertListValue() {
+        binaryTree.insert(List.of(10, 20, 30, 11, 5));
 
         assertTrue(binaryTree.hasData(11));
         assertFalse(binaryTree.hasData(55));

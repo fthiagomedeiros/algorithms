@@ -1,3 +1,5 @@
+import java.util.List;
+import java.util.stream.Collectors;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
@@ -33,6 +35,12 @@ public class BinaryTree {
         } else {
             previous.setRight(node);
         }
+    }
+
+    public List<Integer> insert(List<Integer> data) {
+        return data.stream().sequential()
+            .peek(this::insert)
+            .collect(Collectors.toList());
     }
 
     public boolean hasData(int data) {

@@ -1,10 +1,16 @@
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
 public class BinaryTree {
 
     private TreeNode root;
 
     public void insert(int data) {
+
+        TreeNode node = new TreeNode();
+        node.setData(data);
         if (root == null) {
-            root = new TreeNode(data);
+            root = node;
             return;
         }
 
@@ -13,18 +19,19 @@ public class BinaryTree {
         while (temp != null) {
 
             previous = temp;
-            if (data < temp.data) {
-                temp = temp.left;
-            } else if (data > temp.data) {
-                temp = temp.right;
+            if (data < temp.getData()) {
+                temp = temp.getLeft();
+            } else if (data > temp.getData()) {
+                temp = temp.getRight();
             }
 
         }
 
-        if (data < previous.data) {
-            previous.left = new TreeNode(data);
+        if (data < previous.getData()) {
+
+            previous.setLeft(node);
         } else {
-            previous.right = new TreeNode(data);
+            previous.setRight(node);
         }
     }
 
@@ -35,18 +42,18 @@ public class BinaryTree {
 
         TreeNode temp = root;
         while (true) {
-            if (data < temp.data) {
-                temp = temp.left;
+            if (data < temp.getData()) {
+                temp = temp.getLeft();
 
-            } else if (data > temp.data) {
-                temp = temp.right;
+            } else if (data > temp.getData()) {
+                temp = temp.getRight();
             }
 
             if (temp == null) {
                 return false;
             }
 
-            if (temp.data == data) {
+            if (temp.getData() == data) {
                 return true;
             }
         }

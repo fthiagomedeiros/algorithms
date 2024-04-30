@@ -1,13 +1,15 @@
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@NoArgsConstructor
 public class TreeNode {
 
-    TreeNode left;
-    TreeNode right;
-    int data;
+    private TreeNode left;
+    private TreeNode right;
+    private int data;
 
-    TreeNode(int data) {
-        this.data = data;
-        left = null;
-        right = null;
-    }
 }
 

@@ -16,18 +16,18 @@ public class ValidBstAlgorithm {
         }
 
         if (left == null) {
-            if (right.val < root.val) {
+            if (right.val <= root.val) {
                 return false;
             }
             return true;
         } else if (right == null) {
-            if (left.val > root.val) {
+            if (left.val >= root.val) {
                 return false;
             }
             return true;
         }
 
-        if (left.val > root.val || right.val < root.val) {
+        if (left.val >= root.val || right.val <= root.val) {
             return false;
         }
 

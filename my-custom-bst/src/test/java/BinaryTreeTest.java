@@ -115,6 +115,18 @@ class BinaryTreeTest {
 
     }
 
+    @Test
+    void checkBstValidity3() {
+        binaryTree.insert(List.of(5,4,6,7));
+        TreeNode node = binaryTree.fetchNode(6);
+        node.left = new TreeNode(null, null, 3);
+
+        ValidBstAlgorithm alg = new ValidBstAlgorithm();
+        boolean result = alg.isValidBST(binaryTree.getRoot());
+        assertTrue(result);
+
+    }
+
 
 
 }

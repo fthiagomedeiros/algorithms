@@ -99,4 +99,27 @@ public class BinaryTree {
 
     }
 
+    public TreeNode fetchNode(int data) {
+        if (root == null) {
+            return getRoot();
+        }
+
+        TreeNode temp = root;
+        while (true) {
+            if (data < temp.getVal()) {
+                temp = temp.getLeft();
+
+            } else if (data > temp.getVal()) {
+                temp = temp.getRight();
+            }
+
+            if (temp == null) {
+                return null;
+            }
+
+            if (temp.getVal() == data) {
+                return temp;
+            }
+        }
+    }
 }

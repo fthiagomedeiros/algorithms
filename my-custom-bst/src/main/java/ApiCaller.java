@@ -1,12 +1,18 @@
 public class ApiCaller {
 
+    private final int numberOfDays;
+    private final int[] pricesOnDays;
+
+    public ApiCaller(int[] pricesOnDays) {
+        numberOfDays = pricesOnDays.length;
+        this.pricesOnDays = pricesOnDays;
+    }
 
     public int getNumDays() {
-        return 9;
+        return numberOfDays;
     }
 
     public int getPriceOnDay(int day) {
-        int[] days = new int[] {1,2,3,4,5,-3,7,8,9};
-        return days[day];
+        return pricesOnDays[day];
     }
 }

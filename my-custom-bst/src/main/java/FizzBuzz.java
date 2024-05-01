@@ -109,10 +109,6 @@ public class FizzBuzz {
 //        String sentence = "this is a test sentence is is test";
 //        List<String> sortedWords = level3SortByOccurrences(sentence);
 //        System.out.println(sortedWords);
-
-        FizzBuzz fb = new FizzBuzz();
-        int i = fb.getBuyDay();
-        System.out.println(i);
     }
 
 
@@ -202,7 +198,11 @@ public class FizzBuzz {
         }
     }
 
-    ApiCaller api = new ApiCaller();
+    private ApiCaller api;
+
+    public FizzBuzz(ApiCaller api) {
+        this.api = api;
+    }
 
     /**
      * Return the day which you buy silver. The first day has number zero.
@@ -226,8 +226,6 @@ public class FizzBuzz {
                     MAX_PRICE_FOUND = price;
                     dayToBuy = day;
                 }
-
-                System.out.println(key);
             }
         }
         return dayToBuy;

@@ -29,10 +29,6 @@ public class SameTreeAlgorithm {
             return false;
         }
 
-        if (p != null && q == null) {
-            return false;
-        }
-
         boolean subtree1 = isSameTree(p.left, q.left);
         boolean subtree2 = isSameTree(p.right, q.right);
         return subtree1 && subtree2;

@@ -59,7 +59,7 @@ class BinaryTreeTest {
     }
 
     @Test
-    void shouldBeFalse() {
+    void shouldValidateSameTree3() {
         binaryTree.insert(List.of(1));
         secondBinaryTree.insert(List.of(10));
 
@@ -70,7 +70,7 @@ class BinaryTreeTest {
     }
 
     @Test
-    void shouldTest3() {
+    void shouldValidateSameTree4() {
         binaryTree.insert(List.of(10, 1, 11));
         secondBinaryTree.insert(List.of(10, 1, 11));
 
@@ -81,7 +81,7 @@ class BinaryTreeTest {
     }
 
     @Test
-    void shouldTest4() {
+    void shouldValidateSameTree5() {
         binaryTree.insert(List.of(10, 20, 30, 11, 5));
         secondBinaryTree.insert(List.of(10, 20, 30, 11, 5, 7));
 

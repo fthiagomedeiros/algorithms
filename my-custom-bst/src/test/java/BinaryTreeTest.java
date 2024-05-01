@@ -135,7 +135,7 @@ class BinaryTreeTest {
 
         ValidBstAlgorithm alg = new ValidBstAlgorithm();
         boolean result = alg.isValidBST(binaryTree.getRoot());
-        assertTrue(result);
+        assertFalse(result);
 
     }
 

@@ -106,9 +106,13 @@ public class FizzBuzz {
         //int result = level1WordCount("The quick brown fox jumps over the lazy dog.");
 //        List<String> result2 = level2WordSorting("The quick brown fox jumps over the lazy dog, ant, AN");
 
-        String sentence = "this is a test sentence is is test";
-        List<String> sortedWords = level3SortByOccurrences(sentence);
-        System.out.println(sortedWords);
+//        String sentence = "this is a test sentence is is test";
+//        List<String> sortedWords = level3SortByOccurrences(sentence);
+//        System.out.println(sortedWords);
+
+        FizzBuzz fb = new FizzBuzz();
+        int i = fb.getBuyDay();
+        System.out.println(i);
     }
 
 
@@ -151,27 +155,30 @@ public class FizzBuzz {
      * should be sorted alphabetically.
      */
     public static List<String> level3SortByOccurrences(String sentence) {
-        Map<String, Integer> wordCount = new HashMap<>();
-
-        String[] inputSentence = sentence.split(" ");
-
-        for (int i = 0; i < inputSentence.length; i++) {
-            String current = inputSentence[i].replaceAll("\\p{Punct}", "").toLowerCase();
-            wordCount.put(current, wordCount.getOrDefault(current, 0) + 1);
-        }
-
-        List<String> sortedWords = new ArrayList<>(wordCount.keySet());
-
-        sortedWords.sort((a, b) -> {
-            int freqComparison = wordCount.get(b).compareTo(wordCount.get(a));
-            if (freqComparison != 0) {
-                return freqComparison; // Sort by frequency if frequencies are different
-            } else {
-                return a.compareTo(b); // Sort alphabetically if frequencies are the same
-            }
-        });
-
-        return sortedWords;
+//        Map<String, Integer> wordCount = new HashMap<>();
+//
+//        String[] inputSentence = sentence.split(" ");
+//
+//        for (int i = 0; i < inputSentence.length; i++) {
+//            String current = inputSentence[i].replaceAll("\\p{Punct}", "").toLowerCase();
+//            wordCount.put(current, wordCount.getOrDefault(current, 0) + 1);
+//        }
+//
+//        wordCount.containsKey();
+//
+//        String.format("%s-%s", 1,2);
+//        List<String> sortedWords = new ArrayList<>(wordCount.keySet());
+//
+//        sortedWords.sort((a, b) -> {
+//            int freqComparison = wordCount.get(b).compareTo(wordCount.get(a));
+//            if (freqComparison != 0) {
+//                return freqComparison; // Sort by frequency if frequencies are different
+//            } else {
+//                return a.compareTo(b); // Sort alphabetically if frequencies are the same
+//            }
+//        });
+//
+        return null;
     }
 
     @Getter
@@ -195,5 +202,40 @@ public class FizzBuzz {
         }
     }
 
+    ApiCaller api = new ApiCaller();
+
+    /**
+     * Return the day which you buy silver. The first day has number zero.
+     * This method is called first, and only once.
+     */
+    public int getBuyDay() {
+
+        int dayToBuy = Integer.MIN_VALUE;
+        int MAX_PRICE_FOUND = Integer.MIN_VALUE;
+
+        for (int day = 0; day < api.getNumDays() - 2; day++) {
+            int priceCurrentDay = api.getPriceOnDay(day);
+
+            for (int j = day + 1; j < api.getNumDays() - 1; j++) {
+                int nextDaysPrice = api.getPriceOnDay(j);
+
+                String key = day + "-" + j + " " + (nextDaysPrice - priceCurrentDay);
+                int price = nextDaysPrice - priceCurrentDay;
+
+                if (price > MAX_PRICE_FOUND) {
+                    MAX_PRICE_FOUND = price;
+                    dayToBuy = day;
+                }
+
+                System.out.println(key);
+            }
+        }
+        return dayToBuy;
+    }
+
+    public int getSellDay() {
+        int dayToSell = Integer.MIN_VALUE;
+        return -1;
+    }
 
 }

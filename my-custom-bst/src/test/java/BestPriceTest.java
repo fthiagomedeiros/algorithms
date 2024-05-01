@@ -32,4 +32,22 @@ public class BestPriceTest {
         assertEquals(0, bestDay);
     }
 
+    @Test
+    public void shouldGetBestDayToSell() {
+        ApiCaller api = new ApiCaller(new int[] {1,2,3,4,5,6,7,8,9});
+        bestPrice = new BestPrice(api);
+
+        int bestDay = bestPrice.getSellDay();
+        assertEquals(8, bestDay);
+    }
+
+    @Test
+    public void shouldGetBestDayToSell2() {
+        ApiCaller api = new ApiCaller(new int[] {1,5,1,3,1,8,0});
+        bestPrice = new BestPrice(api);
+
+        int bestDay = bestPrice.getSellDay();
+        assertEquals(5, bestDay);
+    }
+
 }

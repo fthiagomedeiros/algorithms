@@ -1,12 +1,13 @@
+
 public class ValidBstAlgorithm {
 
-    /**
-     * Definition for a binary tree node. public class TreeNode { int val; TreeNode left; TreeNode
-     * right; TreeNode() {} TreeNode(int val) { this.val = val; } TreeNode(int val, TreeNode left,
-     * TreeNode right) { this.val = val; this.left = left; this.right = right; } }
-     */
-
     public boolean isValidBST(TreeNode root) {
+        return isValidBST(root, root, 0);
+    }
+
+    private boolean isValidBST(TreeNode root, TreeNode mainRoot, int position) {
+        int leftPos = 1;
+        int rightPos = 2;
 
         TreeNode left = root.left;
         TreeNode right = root.right;
@@ -27,12 +28,18 @@ public class ValidBstAlgorithm {
             return true;
         }
 
-        if (left.val >= root.val || right.val <= root.val) {
+        if ((left != null && left.val >= root.val) || (right != null && right.val <= root.val)) {
             return false;
         }
 
-        boolean checkLeft = isValidBST(left);
-        boolean checkRight = isValidBST(right);
+        if (position == leftPos && (left != null && left.val >= mainRoot.val || (right != null && right.val >= mainRoot.val))) {
+            return false;
+        } else if (position == rightPos && left.val <= mainRoot.val) {
+            return false;
+        }
+
+        boolean checkLeft = isValidBST(left, root, leftPos); //left subtree
+        boolean checkRight = isValidBST(right, root, rightPos); //right subtree
         return checkLeft && checkRight;
     }
 

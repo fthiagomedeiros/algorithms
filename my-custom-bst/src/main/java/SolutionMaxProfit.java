@@ -69,10 +69,12 @@ public class SolutionMaxProfit {
         int[] values3 = new int[]{2, 5, 3, 1, 10};
         int[] values4 = new int[]{10,5,2,1};
         int[] values5 = new int[]{10,9,8,7,6,5,4,3,2,1};
+        int[] values6 = new int[]{10,9,8,7,6,5,4,5,3,2,1};
 
         SolutionMaxProfit s = new SolutionMaxProfit();
         System.out.println(s.minimumLoss(values3));
         System.out.println(s.minimumLoss(values4));
         System.out.println(s.minimumLoss(values5));
+        System.out.println(s.minimumLoss(values6));
     }
 }

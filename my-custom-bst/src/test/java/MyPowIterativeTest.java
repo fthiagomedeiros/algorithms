@@ -56,7 +56,7 @@ class MyPowIterativeTest {
 
     @Test
     void bigNumber10000000001() {
-        MyPowIterative m = new MyPowIterative();
+        MyPowChatGPT m = new MyPowChatGPT();
         double result = m.myPow(1.0000000000001, -2147483648);
         assertEquals(0.99979, result);
     }
